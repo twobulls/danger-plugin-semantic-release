@@ -2,13 +2,13 @@
 
 Follow this guide to start a new open source project.
 
-- [ ] Clone the project
+- [ X ] Clone the project
 
   ```bash
     git clone git@github.com:twobulls/nyc-frontend-library-template.git
   ```
 
-- [ ] Clear/recreate the git repository
+- [ X ] Clear/recreate the git repository
 
   This is so the project history is clean. Since our changelogs are generated from git history, it's important that we keep the history clean.
 
@@ -34,11 +34,11 @@ Follow this guide to start a new open source project.
   git push origin master
   ```
 
-- [ ] Customize the docs
+- [ X ] Customize the docs
 
   Update the README with basic details about your project/project name. For now, leave usage fields blank, but you should come back and fill it out before making the project public. Update the badges with your repository name.
 
-- [ ] Update the package.json
+- [ X ] Update the package.json
 
   Set the repository url, the project name, and description.
 
