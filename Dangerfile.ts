@@ -1,6 +1,7 @@
 import { schedule } from 'danger';
 
 import { istanbulCoverage } from 'danger-plugin-istanbul-coverage';
+import { reportSemanticRelease } from './src';
 
 schedule(
   istanbulCoverage({
@@ -13,3 +14,5 @@ schedule(
     }
   })
 );
+
+schedule(reportSemanticRelease());

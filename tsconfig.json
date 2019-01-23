@@ -12,7 +12,8 @@
     "module": "es2015",
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2017", "dom"],
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "downlevelIteration": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["src/**/*.spec.ts"]

@@ -1,7 +1,7 @@
-# danger-plugin-changelog
+# danger-plugin-semantic-release
 
-[![build status](https://cloud.drone.io/api/badges/twobulls/danger-plugin-changelog/status.svg)](https://cloud.drone.io/twobulls/danger-plugin-changelog)
-[![npm version](https://badge.fury.io/js/danger-plugin-changelog.svg)](https://badge.fury.io/js/danger-plugin-semantic-release)
+[![build status](https://cloud.drone.io/api/badges/twobulls/danger-plugin-semantic-release/status.svg)](https://cloud.drone.io/twobulls/danger-plugin-semantic-release)
+[![npm version](https://badge.fury.io/js/danger-plugin-semantic-release.svg)](https://badge.fury.io/js/danger-plugin-semantic-release)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.md)
 
@@ -13,20 +13,19 @@
 
 ```js
 import { schedule } from 'danger';
-import { changelog } from 'danger-plugin-changelog';
+import { reportSemanticRelease } from 'danger-plugin-semantic-release';
 
-scheduler(changelog());
+scheduler(reportSemanticRelease());
 ```
 
 ### In Depth
 
 ```js
 import { schedule } from 'danger';
-import { changelog } from 'danger-plugin-changelog';
+import { reportSemanticRelease } from 'danger-plugin-semantic-release';
 
 scheduler(
-  changelog({
-    branches: ['master'], // Only logs when pushing to one of these branches. If left empty or unspecified, always logs. Exact matches only.
+  reportSemanticRelease({
     showProjectedVersion: true, // Show the projected version of the next release. Defaults to true
     showChangelog: true // Show the changelog that would be generated if this change is published. Defaults to true
   })
@@ -39,7 +38,7 @@ When using tools like semantic-release, often it's not always clear what the nex
 
 ## Changelog
 
-See the GitHub [release history](https://github.com/twobulls/danger-plugin-changelog/releases).
+See the GitHub [release history](https://github.com/twobulls/danger-plugin-semantic-release/releases).
 
 ## Contributing
 
