@@ -3,7 +3,7 @@
 [![build status](https://cloud.drone.io/api/badges/twobulls/danger-plugin-semantic-release/status.svg)](https://cloud.drone.io/twobulls/danger-plugin-semantic-release)
 [![npm version](https://badge.fury.io/js/danger-plugin-semantic-release.svg)](https://badge.fury.io/js/danger-plugin-semantic-release)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.md)
+[![MIT license](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE.md)
 
 > Danger.js plugin that surfaces changelog information about your semantically released npm packages.
 
@@ -31,6 +31,8 @@ scheduler(
   })
 );
 ```
+
+Note, you must have Semantic Release installed and setup in your repository for this plugin to work.
 
 ## Vision
 

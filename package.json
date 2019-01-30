@@ -13,7 +13,7 @@
     "type": "git",
     "url": "https://github.com/twobulls/danger-plugin-changelog.git"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "main": "dist/index.min.js",
   "module": "dist/index.min.es.js",
   "types": "dist/index.d.ts",
