@@ -19,7 +19,7 @@ function makeReleaseResult(): ReleaseResult {
     nextRelease: {
       version: '1.0.1',
       gitHead: 'AAAAAB',
-      notes: ['A', 'B', 'C'],
+      notes: 'ABC',
       type: 'minor',
       gitTag: '1.0.1'
     }
@@ -28,16 +28,13 @@ function makeReleaseResult(): ReleaseResult {
 
 describe('formatChangelogSection', () => {
   it('formats the release notes as a markdown list', () => {
-    const notes = ['The first note', 'The second note', 'The third note'];
+    const notes = 'The notes';
     const release = makeReleaseResult();
     (release.nextRelease as NextRelease).notes = notes;
     const changelog = formatChangelogSection(release);
     expect(changelog).toMatchInlineSnapshot(`
 "# Release Notes
-
-*The first note
-*The second note
-*The third note
+The first note,The second note,The third note
 "
 `);
   });

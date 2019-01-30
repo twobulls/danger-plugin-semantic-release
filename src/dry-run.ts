@@ -8,7 +8,7 @@ export interface Release {
 }
 
 export interface NextRelease extends Release {
-  notes: string[];
+  notes: string;
   type: 'patch' | 'minor' | 'major';
 }
 
@@ -20,7 +20,11 @@ export interface ReleaseResult {
 export async function dryRunRelease(): Promise<ReleaseResult | undefined> {
   const stdoutBuffer = new WritableStreamBuffer(); // Silences output from semantic release
   const stderrBuffer = new WritableStreamBuffer();
-  const result = await semanticRelease({ branch: '*', dryRun: true }, { stdout: stdoutBuffer, stderr: stderrBuffer });
+  const result = await semanticRelease({
+    plugins: ['@semantic-release/commit-analyzer', '@semantic-release/release-notes-generator'],
+    branch: 'feature/update-git-tags',
+    dryRun: true
+  });
 
   if (!result) {
     // The API returns false instead of undefined for some reason.

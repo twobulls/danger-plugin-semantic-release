@@ -15,10 +15,7 @@ export function formatChangelogSection(release: ReleaseResult): string {
     return ``;
   }
 
-  const notes = nextRelease.notes.reduce((list, current) => {
-    return `${list}\n*${formatSafeNote(current)}`;
-  }, '');
-  return `# Release Notes\n${notes}\n`;
+  return `# Release Notes\n${nextRelease.notes}\n`;
 }
 
 export function formatCommitSlug(commit: string): string {
