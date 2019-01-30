@@ -1,7 +1,7 @@
 {
-  "name": "danger-plugin-changelog",
+  "name": "danger-plugin-semantic-release",
   "version": "0.0.0-development",
-  "description": "danger-plugin-changelog",
+  "description": "Danger.js plugin that surfaces changelog information about your semantically released npm packages.",
   "keywords": [
     "danger",
     "plugin",
