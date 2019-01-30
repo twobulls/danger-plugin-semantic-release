@@ -1,14 +1,17 @@
 import { ChangelogConfig } from 'config';
 import { ReleaseResult, Release } from 'dry-run';
-import { escapeMarkdownCharacters } from './filename-utils';
+import { escapeMarkdownCharacters, indentAfterNewLines } from './filename-utils';
 
 export declare function markdown(message: string): void;
 
+export function formatSafeNote(note: string): string {
+  return indentAfterNewLines(escapeMarkdownCharacters(note));
+}
+
 export function formatChangelogSection(release: ReleaseResult): string {
-  const notes = release.nextRelease.notes.reduce(
-    (list, current) => `${list}\n*${escapeMarkdownCharacters(current)}`,
-    ''
-  );
+  const notes = release.nextRelease.notes.reduce((list, current) => {
+    return `${list}\n*${formatSafeNote(current)}`;
+  }, '');
   return `# Release Notes\n${notes}\n`;
 }
 
