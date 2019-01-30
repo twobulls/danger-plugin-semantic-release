@@ -6,7 +6,7 @@ import {
   formatVersionSection,
   formatMessage
 } from './format';
-import { ReleaseResult, Release } from './dry-run';
+import { ReleaseResult, Release, NextRelease } from './dry-run';
 import { ChangelogConfig } from './config';
 
 function makeReleaseResult(): ReleaseResult {
@@ -30,7 +30,7 @@ describe('formatChangelogSection', () => {
   it('formats the release notes as a markdown list', () => {
     const notes = ['The first note', 'The second note', 'The third note'];
     const release = makeReleaseResult();
-    release.nextRelease.notes = notes;
+    (release.nextRelease as NextRelease).notes = notes;
     const changelog = formatChangelogSection(release);
     expect(changelog).toMatchInlineSnapshot(`
 "# Release Notes
@@ -65,7 +65,7 @@ describe('formatVersionRow', () => {
       version: '1.0.0'
     };
     const result = formatVersionRow('Next', release);
-    expect(result).toMatchInlineSnapshot(`"Next  | 1.0.0 | [ABCDEFGH](../blob/ABCDEFGH)"`);
+    expect(result).toMatchInlineSnapshot(`"Next | 1.0.0 | [ABCDEFGH](../blob/ABCDEFGH)"`);
   });
 });
 
@@ -77,8 +77,8 @@ describe('formatVersionSection', () => {
 "# Version Info
 Release | Version | Git Commit
 ------- | ------- | ----------
-Last  | 1.0.0 | [AAAAAA](../blob/AAAAAA)
-Next(minor)  | 1.0.1 | [AAAAAB](../blob/AAAAAB)
+Last | 1.0.0 | [AAAAAA](../blob/AAAAAA)
+Next(minor) | 1.0.1 | [AAAAAB](../blob/AAAAAB)
 
 "
 `);

@@ -1,4 +1,5 @@
 const semanticRelease = require('semantic-release'); // Semantic release API doesn't have any types
+import { WritableStreamBuffer } from 'stream-buffers';
 
 export interface Release {
   version: string;
@@ -12,10 +13,18 @@ export interface NextRelease extends Release {
 }
 
 export interface ReleaseResult {
-  lastRelease: Release;
-  nextRelease: NextRelease;
+  lastRelease: Release | false;
+  nextRelease: NextRelease | false;
 }
 
-export function dryRunRelease(): Promise<ReleaseResult | undefined> {
-  return semanticRelease({ dryRun: true });
+export async function dryRunRelease(): Promise<ReleaseResult | undefined> {
+  const stdoutBuffer = new WritableStreamBuffer(); // Silences output from semantic release
+  const stderrBuffer = new WritableStreamBuffer();
+  const result = await semanticRelease({ dryRun: true }, { stdout: stdoutBuffer, stderr: stderrBuffer });
+
+  if (!result) {
+    // The API returns false instead of undefined for some reason.
+    return undefined;
+  }
+  return result;
 }
