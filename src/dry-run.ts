@@ -20,7 +20,7 @@ export interface ReleaseResult {
 export async function dryRunRelease(): Promise<ReleaseResult | undefined> {
   const stdoutBuffer = new WritableStreamBuffer(); // Silences output from semantic release
   const stderrBuffer = new WritableStreamBuffer();
-  const result = await semanticRelease({ dryRun: true }, { stdout: stdoutBuffer, stderr: stderrBuffer });
+  const result = await semanticRelease({ branch: '*', dryRun: true }, { stdout: stdoutBuffer, stderr: stderrBuffer });
 
   if (!result) {
     // The API returns false instead of undefined for some reason.
