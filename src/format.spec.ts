@@ -34,7 +34,7 @@ describe('formatChangelogSection', () => {
     const changelog = formatChangelogSection(release);
     expect(changelog).toMatchInlineSnapshot(`
 "# Release Notes
-The first note,The second note,The third note
+The notes
 "
 `);
   });
