@@ -43,7 +43,7 @@ steps:
       - yarn danger ci
     environment:
       DANGER_GITHUB_API_TOKEN:
-        from_secret: danger_github_api_token
+        from_secret: danger_github_token
     when:
       event:
         - pull_request
