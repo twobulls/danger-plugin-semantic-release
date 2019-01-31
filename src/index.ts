@@ -9,8 +9,6 @@ export async function reportSemanticRelease(config?: Partial<ChangelogConfig>): 
 
   const result = await dryRunRelease();
 
-  markdown(JSON.stringify(result));
-
   if (result === undefined) {
     return;
   }
